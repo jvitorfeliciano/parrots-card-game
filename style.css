@@ -28,7 +28,7 @@ body{
 }
 
 .contents{
-    width: 78vw;
+    width: 70vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
