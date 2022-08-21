@@ -5,8 +5,8 @@ let cardNumbers=0;
 let count1=0;
 const imgNumber = [0,1,2,3,4,5,6];
 imgNumber.sort(comparador);
-const imgArchive =[];
 const imgPairs =[];
+let  imgArchive =[];
 let cardFlipped = [];
 
 function start(){
@@ -20,14 +20,14 @@ start();
 
 function cardOrganization (){
    for(let i=0; i<cardNumbers/2; i++){
-    imgArchive.push (`<div class="card" cardNumber ="C${i}"  onclick="flipCard(this)">
+    imgArchive.push (`<div class="card cardOn" cardNumber ="C${i}"  onclick="flipCard(this)">
         <div class="face1" >
             <img src="./imagens/front.png" alt="">
         </div>
         <div class="back face2">
         <img src="./imagens/${imgNumber[i]}.gif" alt="">
         </div> `);
-     imgArchive.push (`<div class="card" onclick="flipCard(this)" cardNumber ="C${i}">
+     imgArchive.push (`<div class="card cardOn"  onclick="flipCard(this)" cardNumber ="C${i}">
         <div class="face1" >
             <img src="./imagens/front.png" alt="">
         </div>
@@ -49,6 +49,7 @@ function cardDistribution (){
 
 cardDistribution();
 
+
 function flipCard(card){
     const front = card.querySelector('.face1');
     front.classList.add('front-face');
@@ -57,7 +58,9 @@ function flipCard(card){
     cardFlipped.push(card);
     count1 ++
     if (count1%2==0){
-        verification();  
+        disable();
+        verification(); 
+        setTimeout(enable,1000)
     }  
 
     setTimeout(endGame,500);
@@ -77,22 +80,37 @@ function verification() {
     if (card1 !== card2){
         setTimeout(remove, 1000);
         } else{
-            imgPairs.push(cardFlipped[0])
-            imgPairs.push(cardFlipped[1])
+            for (let i=0; i< 2; i++){
+                cardFlipped[i].removeAttribute('onclick');
+                cardFlipped[i].classList.remove('cardOn')
+            }
+            imgPairs.push(cardFlipped[0]);
+            imgPairs.push(cardFlipped[1]);
             cardFlipped.splice(0, cardFlipped.length);
         }     
     }
         
 function endGame (){
     if (imgPairs.length === cardNumbers){
-        alert(`Você ganhou com ${count1} jogadas`);
+        alert(`Você ganhou com ${count1} jogadas`);endGame();
     }
 }
     
+function disable(){
+    const list = document.querySelectorAll('.cardOn')
+    console.log(list)
+    for (let i=0; i<list.length; i++){
+        list[i].removeAttribute('onclick')
+    }
+}
 
-
-
-
+function enable (){
+    const list = document.querySelectorAll('.cardOn')
+    console.log(list)
+    for (let i=0; i<list.length; i++){
+        list[i].setAttribute('onclick','flipCard(this)')
+    }
+}
 
 
       
