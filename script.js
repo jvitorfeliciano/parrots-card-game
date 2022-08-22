@@ -49,13 +49,12 @@ function cardDistribution (){
 
 cardDistribution();
 
-
 function flipCard(card){
+    card.removeAttribute('onclick');
     const front = card.querySelector('.face1');
     front.classList.add('front-face');
     const back = card.querySelector('.face2') ;
     back.classList.add('back-face') ;
-    card.removeAttribute('onclick')
     cardFlipped.push(card);
     count1 ++
     if (count1%2==0){
@@ -94,8 +93,10 @@ function verification() {
         
 function endGame (){
     if (imgPairs.length === cardNumbers){
-        alert(`Você ganhou com ${count1} jogadas`);endGame();
+        alert(`Você ganhou com ${count1} jogadas`);
+        start();
     }
+    
 }
     
 function disable(){
