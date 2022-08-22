@@ -13,7 +13,6 @@ body{
 .title{
     width: 100vw;
     margin-top: 40px;
-    width: 49vw;
     height: 63px;
     display: flex;
     align-items: center;
@@ -93,7 +92,6 @@ body{
     .title{
       width: 100vw;
       margin-top: 40px;
-      width: 49vw;
       height: 63px;
       display: flex;
       justify-content: center;

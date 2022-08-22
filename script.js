@@ -11,7 +11,6 @@ let cardFlipped = [];
 
 function start(){
 while(cardNumbers<4 || cardNumbers >14 || cardNumbers%2 !=0){
-
     cardNumbers = Number(prompt('Com quantas cartas vocês deseja jogar? (Mínimo = 4 e Máximo = 14'));
 }
 }
