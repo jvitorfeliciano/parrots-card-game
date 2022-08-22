@@ -25,6 +25,7 @@ body{
     font-size: 56px;
     line-height: 66px;
     letter-spacing: -0.004em;
+    
 }
 
 .contents{
@@ -32,15 +33,14 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 47px;
 }
 
 .card{
+    margin-top: 47px;
     margin-left: 34px;
     width: 117px;
     height: 146px;
     position: relative;
-    margin-top: 35px;
     flex-shrink: 0;
 }
 
@@ -89,7 +89,7 @@ body{
     width: 85%;
   }
 
-  @media (max-width:600px) {
+  @media (max-width:767px) {
     .title{
       width: 100vw;
       margin-top: 40px;

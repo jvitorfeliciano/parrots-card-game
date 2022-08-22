@@ -81,7 +81,6 @@ function verification() {
         setTimeout(enable,1000);
         } else{
             for (let i=0; i< 2; i++){
-                cardFlipped[i].removeAttribute('onclick');
                 cardFlipped[i].classList.remove('cardOn')
             }
             imgPairs.push(cardFlipped[0]);
