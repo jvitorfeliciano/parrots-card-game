@@ -88,3 +88,22 @@ body{
   img {
     width: 85%;
   }
+
+  @media (max-width:600px) {
+    .title{
+      width: 100vw;
+      margin-top: 40px;
+      width: 49vw;
+      height: 63px;
+      display: flex;
+      justify-content: center;
+      color: #75B79E; 
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 42px;
+      letter-spacing: -0.004em;
+
+    }
+  }

@@ -12,7 +12,7 @@ let cardFlipped = [];
 function start(){
 while(cardNumbers<4 || cardNumbers >14 || cardNumbers%2 !=0){
 
-    cardNumbers = Number(prompt('Com quantas cartas vocês deseja jogar?'));
+    cardNumbers = Number(prompt('Com quantas cartas vocês deseja jogar? (Mínimo = 4 e Máximo = 14'));
 }
 }
 
@@ -59,8 +59,8 @@ function flipCard(card){
     count1 ++
     if (count1%2==0){
         disable();
-        verification(); 
-        setTimeout(enable,1000)
+        verification();
+        
     }  
 
     setTimeout(endGame,500);
@@ -79,6 +79,7 @@ function verification() {
     const card2 = cardFlipped[1].getAttribute('cardNumber');
     if (card1 !== card2){
         setTimeout(remove, 1000);
+        setTimeout(enable,1000);
         } else{
             for (let i=0; i< 2; i++){
                 cardFlipped[i].removeAttribute('onclick');
@@ -87,6 +88,7 @@ function verification() {
             imgPairs.push(cardFlipped[0]);
             imgPairs.push(cardFlipped[1]);
             cardFlipped.splice(0, cardFlipped.length);
+            enable();
         }     
     }
         
@@ -98,7 +100,6 @@ function endGame (){
     
 function disable(){
     const list = document.querySelectorAll('.cardOn')
-    console.log(list)
     for (let i=0; i<list.length; i++){
         list[i].removeAttribute('onclick')
     }
