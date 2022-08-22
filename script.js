@@ -55,12 +55,12 @@ function flipCard(card){
     front.classList.add('front-face');
     const back = card.querySelector('.face2') ;
     back.classList.add('back-face') ;
+    card.removeAttribute('onclick')
     cardFlipped.push(card);
     count1 ++
     if (count1%2==0){
         disable();
-        verification();
-        
+        verification();    
     }  
 
     setTimeout(endGame,500);
